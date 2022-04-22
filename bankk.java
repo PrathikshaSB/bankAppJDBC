@@ -47,29 +47,25 @@ public class bankk {
 		
 		if(x>=amtt) //"update bankAcc set money=? where name=name1"
 		{
-		x=x-amtt;
-		PreparedStatement ps1 = con.prepareStatement("update registert set bal=? where accNum=?");
-		ps1.setInt(1, x);
-		ps1.setString(2, send1);
-		ps1.execute();
-
-
-
-		PreparedStatement ps3 = con.prepareStatement("update registert set bal=? where accNum=?");
-		ps3.setInt(1, x1+amtt );
-		ps3.setString(2, rece1);
-		ps3.execute();
-		
-		System.out.println("Updated");
+			x=x-amtt;
+			PreparedStatement ps1 = con.prepareStatement("update registert set bal=? where accNum=?");
+			ps1.setInt(1, x);
+			ps1.setString(2, send1);
+			ps1.execute();
+	
+			PreparedStatement ps3 = con.prepareStatement("update registert set bal=? where accNum=?");
+			ps3.setInt(1, x1+amtt );
+			ps3.setString(2, rece1);
+			ps3.execute();
+			
+			System.out.println("Updated");
 
 		}
 		//Scanner sc = new Scanner(System.in);
 		else
 		{
-		System.out.println("not enough balance");
+			System.out.println("not enough balance");
 		}
-
-		con.close();
 
 	}
 	
@@ -99,7 +95,7 @@ public class bankk {
 		String accNum=sc.next();
 		System.out.println("enter balnace");
 		String bal=sc.next();
-		PreparedStatement ptmt1=con.prepareStatement("update registert accNum=? and bal=? where username=?");
+		PreparedStatement ptmt1=con.prepareStatement("UPDATE registert SET accNum= ?, bal= ? WHERE username=?");
 		
 		
 //		PreparedStatement ptmt2=con.prepareStatement("update registert accNum=? and bal=? where username=?");
@@ -109,10 +105,12 @@ public class bankk {
 		ptmt1.setString(2, bal);
 		ptmt1.setString(3, uname);
 		
+		ptmt1.executeUpdate();
+		
 		System.out.println("acc created!");
 		System.out.println("-----------------------------------------------");
 		
-		ptmt1.executeUpdate();
+		
 		
 		
 		
