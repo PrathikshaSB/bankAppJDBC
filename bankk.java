@@ -14,12 +14,14 @@ public class bankk {
 		
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/Employee","root","Pass@123");
-		
+		System.out.println("enter from acc");
+
+
 		String send1=sc.next();
-		
+		System.out.println("enter to acc");		
 		String rece1=sc.next();
 		
-		
+		System.out.println("enter amt");
 		int amtt=sc.nextInt();
 		
 		
